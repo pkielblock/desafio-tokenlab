@@ -9,7 +9,7 @@ class Database {
     const HOST = 'localhost';
     const NAME = 'tokenlab';
     const USER = 'pkielblock';
-    const PASSWORD = 'pedro01112002';
+    const PASSWORD = '123';
     private string $table;
     private PDO $connection;
 

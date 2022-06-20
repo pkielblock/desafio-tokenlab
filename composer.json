@@ -1,0 +1,11 @@
+{
+  "name": "tokenlab/events",
+  "autoload": {
+    "psr-4": {
+      "App\\": "App/"
+    }
+  },
+  "require": {
+    "ext-pdo": "*"\
+  }
+}

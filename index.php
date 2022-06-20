@@ -1,3 +1,12 @@
+<?php
+
+use App\DB\Database;
+use App\Entity\Usuario;
+
+require __DIR__ . '/vendor/autoload.php';
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,14 +33,15 @@
                 <button type="submit" class="btn btn-success mt-3">
                     Logar
                 </button>
+                <a href="cadastroUsuarios.php" class="btn btn-primary mt-3">Cadastrar</a>
             </div>
         </form>
     </div>
     <?php
+    $stmt = new Database('users');
         if (isset($_POST['usuario']) && isset($_POST['senha'])) {
-            $usuario = $_POST['usuario'];
-            $senha = $_POST['senha'];
-            if ($usuario == 'admin' && $senha == 'admin') {
+            $userExists = $stmt->verifyUser($_POST['usuario'], $_POST['senha']);
+            if ($userExists) {
                 header('Location: principal.php');
                 exit;
             } else {

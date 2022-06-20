@@ -82,4 +82,27 @@ class Database {
 
         return true;
     }
+
+    public function insertUser($values, $table): int
+    {
+        //Deixando os campos e binds dinamicos
+        $campos = array_keys($values); //array keys para pegar as chaves
+        $binds = array_pad([], count($campos), '?');
+
+        $sql = "INSERT INTO " . $table . " (" . implode(',', $campos) . ") VALUES (" . implode(',', $binds) . ")";
+        $this->execute($sql, array_values($values)); //array values para pegar os valores
+
+        return $this->connection->lastInsertId();
+    }
+
+    public function verifyUser($usuario, $senha): bool
+    {
+        $sql = 'SELECT * FROM users WHERE user = ? AND password = ?';
+        $stmt = $this->execute($sql, [$usuario, $senha]);
+        $result = $stmt->fetch();
+        if ($stmt->rowCount() == 1) {
+            return true;
+        }
+        return false;
+    }
 }

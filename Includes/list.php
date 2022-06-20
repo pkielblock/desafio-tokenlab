@@ -37,6 +37,9 @@ $resultados = '';
         <a href="cadastrar.php">
             <button class="btn btn-success">Novo Evento</button>
         </a>
+        <a href="index.php">
+            <button class="btn btn-danger">Sair</button>
+        </a>
     </section>
     <section class="container mt-3">
         <table class="table text-light">

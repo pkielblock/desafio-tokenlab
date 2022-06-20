@@ -15,7 +15,7 @@ if(isset($_POST['titulo'], $_POST['descricao'], $_POST['comecaEm'], $_POST['term
     $newEvento->terminaEm = $_POST['terminaEm'];
     $newEvento->cadastrarEvento();
 
-    header('location: index.php?status=success');
+    header('location: principal.php?status=success');
     exit;
 }
 

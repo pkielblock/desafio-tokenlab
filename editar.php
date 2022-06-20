@@ -8,7 +8,7 @@ use \App\Entity\Evento;
 
 //valida id
 if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    header('Location: index.php?status=error');
+    header('Location: principal.php?status=error');
     exit;
 }
 
@@ -17,7 +17,7 @@ $newEvento = Evento::getEvento($_GET['id']);
 
 //validando o evento
 if(!$newEvento instanceof Evento) {
-    header('Location: index.php?status=error');
+    header('Location: principal.php?status=error');
     exit;
 }
 
@@ -29,7 +29,7 @@ if(isset($_POST['titulo'], $_POST['descricao'], $_POST['comecaEm'], $_POST['term
     $newEvento->terminaEm = $_POST['terminaEm'];
     $newEvento->atualizarEvento();
 
-    header('location: index.php?status=success');
+    header('location: principal.php?status=success');
     exit;
 }
 

@@ -5,7 +5,7 @@
             <div class="form-group">
                 <p>Vocẽ realmente deseja excluir a vaga <strong><?=$newEvento->title?></strong></p>
             <div class="form-group">
-                <a href="index.php">
+                <a href="principal.php">
                     <button type="button" class="btn btn-primary">Cancelar</button>
                 </a>
                 <button type="submit" name="excluir" class="btn btn-danger">

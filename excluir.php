@@ -7,7 +7,7 @@ use \App\Entity\Evento;
 
 //valida id
 if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    header('Location: index.php?status=error');
+    header('Location: principal.php?status=error');
     exit;
 }
 
@@ -16,7 +16,7 @@ $newEvento = Evento::getEvento($_GET['id']);
 
 //validando o evento
 if(!$newEvento instanceof Evento) {
-    header('Location: index.php?status=error');
+    header('Location: principal.php?status=error');
     exit;
 }
 
@@ -24,7 +24,7 @@ if(!$newEvento instanceof Evento) {
 if(isset($_POST['excluir'])) {
     $newEvento->deletarEvento();
 
-    header('location: index.php?status=success');
+    header('location: principal.php?status=success');
     exit;
 }
 
